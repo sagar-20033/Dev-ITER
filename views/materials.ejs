@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="https://kit.fontawesome.com/9181e0d609.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"
+        rel="stylesheet">
+
+    <title>DigiIter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <!-----------------------
+        Bootstrap css
+    ----------------------->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-----------------------
+        Custom css
+    ----------------------->
+
+    <link rel="stylesheet" href="./public/css/style.css">
+
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.css">
+</head>
+
+<body>
+    <!-----------------------
+        Navbar
+    ----------------------->
+    <header class="main-header clearfix" role="header">
+        <div class="logo">
+            <a href="#"><em>DIGI</em> ITER</a>
+        </div>
+        <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
+        <nav id="menu" class="main-nav" role="navigation">
+            <ul class="main-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/">About Us</a></li>
+                <li class="active"><a href="#section3" >Materials</a></li>
+                <li><a href="./evnt">Events</a></li>
+                <li><a href="/">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+    <section class="category">
+        <div class="overlay"></div>
+        <div class="catdiv">
+            <h1>MATERIALS</h1>
+        </div>
+    </section>
+
+
+    <div id="sem_materials" class="material-outer-container">
+        <div data-aos="fade-down">
+            <div class="section-heading">
+                <h2>Semester Materials</h2>
+            </div>
+        </div>
+        <div class="content-container">
+            <div class="sem">
+                <% newSubjects.forEach(function(newSub){ %>
+                    <div data-aos="fade-up">
+                        <div class="mcard">
+                            <div class="mhead">
+                                <h3>
+                                    <%=newSub.name%>
+                                </h3>
+                            </div>
+                            <div class="mimg"><img src="<%=newSub.img%>" alt="" class="img-fluid"  width="300px" ></div>
+                            <div class="minfo">
+                                <%=newSub.description%>
+                            </div>
+                            <a href="<%=newSub.link%>" target="_blank" class="mbtn">
+                                <div>GET MATERIAL >></div>
+                            </a>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+    </div>
+
+    <div id="other_materials" class="material-outer-container">
+        <div data-aos="fade-down">
+            <div class="section-heading">
+                <h2>Other Resources</h2>
+            </div>
+        </div>
+        <div class="content-container">
+            <div class="sem">
+
+                <% newExtMat.forEach(function(m){ %>
+                    <div data-aos="fade-up">
+                        <div class="mcard">
+                            <div class="mhead">
+                                <h3>
+                                    <%=m.name%>
+                                </h3>
+                            </div>
+                            <div class="mimg"><img src=" <%=m.img%>" alt="" class="img-fluid"></div>
+                            <div class="minfo">
+                                <%=m.description%>
+                            </div>
+                            <a href=" <%=m.link%>" target="_blank" class="mbtn">
+                                <div>GET MATERIAL >></div>
+                            </a>
+                        </div>
+                    </div>
+                    <% }) %>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-----------------------
+        Footer
+    ----------------------->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Made with 💖 by <a href="https://www.linkedin.com/in/subrat-kumar-sahu-175b81239/" target="_blank">Subrat Kumar</a>
+                    </div>
+            </div>
+        </div>
+    </footer>
+
+    </div>
+
+
+
+    <!-------------------------------
+        Bootstrap & jquery script
+    ------------------------------>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+
+    <script src="./public/js/script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+
+
+        AOS.init();
+        AOS.init({
+            offset: 50
+        });
+
+        
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 50) {
+                $(".main-header").addClass("on-scroll");
+            } else {
+                $(".main-header").removeClass("on-scroll");
+            }
+        });
+
+        $('.nav li:first').addClass('active');
+
+        var showSection = function showSection(section, isAnimate) {
+            var
+                direction = section.replace(/#/, ''),
+                reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+                reqSectionPos = reqSection.offset().top - 0;
+
+            if (isAnimate) {
+                $('body, html').animate({
+                    scrollTop: reqSectionPos
+                },
+                    800);
+            } else {
+                $('body, html').scrollTop(reqSectionPos);
+            }
+
+        };
+
+
+
+    </script>
+
+</body>
